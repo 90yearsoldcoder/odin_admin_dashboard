@@ -1,0 +1,26 @@
+:root.light {
+  --sidebar-bg-color: rgb(0, 238, 255);
+  --header-bg-color: white;
+  --content-bg-color: rgb(218, 218, 218);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 200px minmax(200px, 1fr);
+  grid-template-rows: 200px minmax(200px, 1fr);
+}
+
+.sidebar {
+  grid-area: 1/1/3/2;
+  background-color: var(--sidebar-bg-color);
+}
+
+.header {
+  grid-area: 1/2/2/3;
+  background-color: var(--header-bg-color);
+}
+
+.content {
+  grid-area: 2/2/3/3;
+  background-color: var(--content-bg-color);
+}
