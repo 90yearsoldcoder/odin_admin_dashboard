@@ -1,9 +1,17 @@
 :root.light {
+  --page-font-family: font-family: "Times New Roman", Times, serif;
+
   --sidebar-bg-color: rgb(25, 146, 212);
-  --header-bg-color: white;
-  --content-bg-color: rgb(218, 218, 218);
   --sidebar-icon-color: #ffffff;
+
+  --header-bg-color: white;
+  --header-icon-color: black;
+  --header-text-color: black;
+  --header-button-color: rgb(25, 146, 212);
+  --header-button-text-color: white;
+
   --input-text-bg-color: grey;
+  --content-bg-color: rgb(218, 218, 218);
 }
 
 body {
@@ -13,7 +21,7 @@ body {
 /*Basic layout*/
 main {
   display: grid;
-  grid-template-columns: 200px minmax(200px, 1fr);
+  grid-template-columns: clamp(200px, 25%, 300px) minmax(200px, 4fr);
   grid-template-rows: 150px minmax(200px, 1fr);
 }
 
@@ -40,29 +48,58 @@ main {
 .content {
   grid-area: 2/2/3/3;
   background-color: var(--content-bg-color);
+
+  display: grid;
 }
 
-/*inder grid*/
+/*---------------inner grid---------------*/
 
 /*In header*/
 .search_bar {
   display: flex;
-  margin: 10px;
+  margin: 5px 10px 10px 30px;
   align-items: center;
   gap: 30px;
-  height: fit-content;
 }
 .search_bar > input[type="text"] {
   flex: 0.8;
   border-radius: 10px;
+  border-width: 0;
   background-color: var(--content-bg-color, "white");
-  height: 20px;
+  height: 25px;
   margin: 0;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: flex-end;
+
+  margin-right: 20px;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin: 5px 10px 5px 30px;
+}
+
+.user_action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 5px 10px 5px 30px;
 }
 
 /*font setting*/
 .db_list_p {
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--page-font-family);
   font-weight: bolder;
   font-size: 1.2rem;
   color: white;
@@ -70,6 +107,11 @@ main {
 
 .db_list_p:hover {
   text-decoration: underline;
+}
+
+.user_name {
+  color: var(--header-text-color);
+  font-weight: bolder;
 }
 
 /*other setting*/
@@ -95,4 +137,44 @@ ul {
 
 .sidebar i {
   color: var(--sidebar-icon-color);
+}
+.header i {
+  color: var(--header-icon-color);
+}
+
+.user-picture-container {
+  height: 2.5rem;
+  width: 2.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.user-picture-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.larger-picture {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+p {
+  margin: 5px;
+}
+
+.header_button {
+  border-radius: 20px;
+  border-width: 0;
+  height: 40px;
+  width: 100px;
+  background-color: var(--header-button-color);
+  color: var(--header-button-text-color);
+  font-size: medium;
+  font-family: var(--page-font-family);
+  font-weight: bold;
 }
